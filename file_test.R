@@ -5,3 +5,8 @@ library(lubridate)
 # Load data
 db <- read.csv("db_31mar18.csv")
 cust <- read.csv("cust4.csv")
+
+# count db
+db1 <- db %>%
+  group_by(Source, Profile) %>%
+  summarise(Nr_Cust = n())
