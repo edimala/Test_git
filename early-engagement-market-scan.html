@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early Engagement Market Scan</title>
+<meta name="description" content="Early Engagement: Global Market Scan Across Industries — what customers do in the first 90 days, and how leaders in banking and other industries win them.">
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f0f0ed; --text:#1b1c1e; --muted:#5d6168;
+  --border:#dedfdc; --accent:#1f5fbf; --accent-soft:#e6eefa; --accent-text:#174a96;
+  --warn-soft:#fdf3e2; --warn:#9a5a00;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141518; --surface:#1c1d21; --surface-2:#24262b; --text:#e8e8e6; --muted:#a0a4ab;
+    --border:#33363c; --accent:#6ea0ec; --accent-soft:#1d2a40; --accent-text:#9cc0f5;
+    --warn-soft:#2e2414; --warn:#e3a94f;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141518; --surface:#1c1d21; --surface-2:#24262b; --text:#e8e8e6; --muted:#a0a4ab;
+  --border:#33363c; --accent:#6ea0ec; --accent-soft:#1d2a40; --accent-text:#9cc0f5;
+  --warn-soft:#2e2414; --warn:#e3a94f;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.hero{padding:56px 0 32px;border-bottom:1px solid var(--border)}
+.eyebrow{color:var(--accent-text);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:8px 0 12px}
+.byline{color:var(--muted);font-size:14px}
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+nav.toc ul{list-style:none;margin:0;padding:10px 0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.toc ul::-webkit-scrollbar{display:none}
+nav.toc a{display:block;white-space:nowrap;padding:5px 11px;border-radius:999px;color:var(--muted);text-decoration:none;font-size:13.5px}
+nav.toc a:hover{background:var(--surface-2);color:var(--text)}
+section{padding:44px 0 8px}
+h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(24px,3.4vw,31px);line-height:1.2;margin:0 0 12px}
+h3{font-size:17px;margin:28px 0 10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--text);max-width:760px}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
+.summary-grid .card h4{margin:0 0 6px;font-size:15px}
+.summary-grid .card p{margin:0;font-size:14.5px;color:var(--muted)}
+.callout{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;padding:16px 18px;margin:20px 0}
+.callout.warn{background:var(--warn-soft);border-left-color:var(--warn)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+.stat .num{font-size:28px;font-weight:650;color:var(--accent-text);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .lbl{font-size:13.5px;color:var(--muted);margin-top:6px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface);margin:16px 0 20px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);font-weight:600;font-size:13px;color:var(--muted);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600}
+td.fig{font-variant-numeric:tabular-nums;color:var(--accent-text);font-weight:600}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.src{font-size:12.5px;color:var(--muted)}
+.tbl-wide{min-width:820px}
+.tbl-mid{min-width:640px}
+ul.bullets{padding-left:20px;margin:0 0 14px}
+ul.bullets li{margin:6px 0}
+/* journey */
+.journey{overflow-x:auto;margin:18px 0 6px}
+.jgrid{display:grid;grid-template-columns:120px repeat(4,minmax(150px,1fr));gap:10px;min-width:760px}
+.jhead{text-align:center;padding:4px 0}
+.jhead b{display:block;font-size:14.5px}
+.jhead span{font-size:12.5px;color:var(--muted)}
+.jlane{font-weight:600;font-size:14.5px;display:flex;align-items:center}
+.jcell{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.45}
+.jcell.hi{background:var(--accent-soft);border:2px solid var(--accent)}
+.jcell.hi strong{display:block;color:var(--accent-text)}
+ol.principles{counter-reset:p;list-style:none;padding:0;margin:10px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+ol.principles li{counter-increment:p;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 16px 16px 56px;position:relative;font-size:14.5px}
+ol.principles li::before{content:counter(p);position:absolute;left:16px;top:15px;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:var(--surface);font-weight:700;display:grid;place-items:center;font-size:14px}
+ol.principles b{display:block;margin-bottom:2px}
+ol.principles em{font-style:normal;color:var(--muted);font-size:13px}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:16px 0}
+.layer h4{margin:0 0 4px;font-size:15.5px}
+.layer .what{font-size:14px;margin-bottom:8px}
+.layer .vendors{font-size:13px;color:var(--muted);margin-bottom:8px}
+.layer .ev{font-size:13.5px;border-top:1px dashed var(--border);padding-top:8px}
+tr.missing td:first-child{color:var(--warn)}
+ol.steps{padding-left:22px}
+ol.steps li{margin:8px 0}
+.sources{columns:2 300px;column-gap:28px;font-size:14px;padding-left:18px}
+.sources li{break-inside:avoid;margin:4px 0}
+footer{padding:36px 0 56px;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Global market scan</div>
+    <h1>Early Engagement: Global Market Scan Across Industries</h1>
+    <div class="byline">Nov 22, 2026 · Edi Mala</div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <ul>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#why">Why 90 days</a></li>
+      <li><a href="#banking">Banking &amp; fintech</a></li>
+      <li><a href="#industries">Other industries</a></li>
+      <li><a href="#vendors">Vendors</a></li>
+      <li><a href="#playbook">Playbook</a></li>
+      <li><a href="#gap">Current vs. market</a></li>
+      <li><a href="#kpis">KPIs &amp; next steps</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- SUMMARY -->
+<section id="summary">
+  <h2>Summary</h2>
+  <p class="lede">What customers do in the first 90 days decides whether a bank becomes their main bank. Primacy is unlikely after day 90, and 50% of digitally opened accounts are gone by then. Leaders in every industry win the same way: they identify one early behaviour that predicts retention and put the whole onboarding behind it.</p>
+
+  <div class="summary-grid">
+    <div class="card"><h4>Paycheck first</h4><p>Chime, Monzo, Revolut and Nubank link early pay, fee waivers and tiers to salary. Accounts with a direct deposit last about twice as long.</p></div>
+    <div class="card"><h4>Card works on day 0</h4><p>A virtual card plus wallet push provisioning gets 83% of cardholders paying within 3 days.</p></div>
+    <div class="card"><h4>Borrow the habit layer</h4><p>Duolingo: streaks. Streaming: taste questions. Telco: welcome calls. E-commerce: the second purchase. Vitality: rewards for repeated behaviour.</p></div>
+    <div class="card"><h4>Six vendor layers</h4><p>Engagement platforms, insight engines, lifecycle orchestration, salary switching, wallet provisioning and gamification.</p></div>
+  </div>
+
+  <div class="callout">
+    <strong>Next step for a daily-banking PM:</strong> use cohort data to find our own "aha" threshold (for example <em>salary + 5 card payments + 1 bill in 30 days</em>), then build the day 0–90 journey to reach it.
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <h2>Why the first 90 days decide the relationship</h2>
+  <p>Every industry the scan covered finds the same pattern: what a customer does in the first 1–90 days predicts most of their lifetime value, and the chance to change it drops quickly after that.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">8x / 10x</div><div class="lbl">Fee revenue / average deposits of a primary vs. non-primary customer</div></div>
+    <div class="stat"><div class="num">73%</div><div class="lbl">Of cross-sales happen in the first 3 months</div></div>
+    <div class="stat"><div class="num">50%</div><div class="lbl">Of digitally opened accounts gone within 90 days</div></div>
+    <div class="stat"><div class="num">~2x</div><div class="lbl">Longer lifespan for accounts that receive a direct deposit</div></div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="tbl-mid">
+      <thead><tr><th>Finding</th><th>Figure</th><th>Industry</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Primacy rarely forms after the first 90 days</td><td class="fig">Probability falls sharply after day 90</td><td><span class="tag">Banking</span></td><td class="src">Curinos</td></tr>
+        <tr><td>Value of a primary customer vs. a non-primary one</td><td class="fig">8x fee revenue, 10x average deposits</td><td><span class="tag">Banking</span></td><td class="src">Curinos</td></tr>
+        <tr><td>Share of cross-sales that happen in the first 3 months</td><td class="fig">73%</td><td><span class="tag">Banking</span></td><td class="src">BAI via Gallup</td></tr>
+        <tr><td>Digitally opened accounts gone within 90 days</td><td class="fig">50%</td><td><span class="tag">Banking</span></td><td class="src">Q2</td></tr>
+        <tr><td>Lifespan of accounts that receive a direct deposit</td><td class="fig">About 2x longer</td><td><span class="tag">Banking</span></td><td class="src">The Financial Brand</td></tr>
+        <tr><td>Touches before satisfaction and sales stop rising</td><td class="fig">Up to 7 in the first 60 days</td><td><span class="tag">Banking</span></td><td class="src">The Financial Brand</td></tr>
+        <tr><td>Institutions that run any onboarding programme</td><td class="fig">50%</td><td><span class="tag">Banking</span></td><td class="src">The Financial Brand</td></tr>
+        <tr><td>Mobile-app users lost within 30 days of install</td><td class="fig">More than 70%</td><td><span class="tag">All apps</span></td><td class="src">AppsFlyer via EngageLab</td></tr>
+        <tr><td>Median app retention, day 1 / day 7 / day 30</td><td class="fig">25% / 8% / 4%</td><td><span class="tag">All apps</span></td><td class="src">UXCam 2026</td></tr>
+        <tr><td>Fintech app retention, day 1 / day 30</td><td class="fig">About 22–30% / 11.6%</td><td><span class="tag">Fintech</span></td><td class="src">Lovable summary of Plotline and Sendbird</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Finance and health apps had better day-30 activation than entertainment and shopping apps in North America in Q3 2025 (eMarketer/Airship). That is good news for banks: daily money tasks give people a natural reason to come back, if the bank makes those tasks happen early. CSI argues the 90-day plan should continue through about 600 days (CSI).</p>
+</section>
+
+<!-- BANKING -->
+<section id="banking">
+  <h2>Banking and fintech: what the leaders do in the first 90 days</h2>
+  <p>The best-performing banks treat the paycheck as the main goal, and the first card payment as the habit that grows from it. Everything else in onboarding exists to make those two things happen early.</p>
+
+  <div class="table-wrap">
+    <table class="tbl-wide">
+      <thead><tr><th>Player (market)</th><th>Early-engagement mechanic</th><th>Reported result</th></tr></thead>
+      <tbody>
+        <tr><td>Chime (US)</td><td>Get paid up to 2 days early. Membership tiers unlock with direct deposit: Plus at $200+, Prime at $3,000+ a month. Fee-free overdraft (SpotMe) needs $200+ in direct deposits.</td><td>10.9M active members, up 20% YoY. Direct depositor growth rose for 3 quarters in a row. Record "late-stage" salary conversions from members who joined for other features <span class="src">(PYMNTS Q3 2026, PYMNTS)</span></td></tr>
+        <tr><td>Monzo (UK)</td><td>Salary added at sign-up. Paid one business day early. Salary Sorter splits pay into bills, savings and spending pots. Double Payday prize draw.</td><td>76% of salaried ("Full Monzo") customers say they budget better <span class="src">(Monzo survey)</span></td></tr>
+        <tr><td>Revolut (global)</td><td>Welcome bonus paid only after a first card spend, e.g. spend €5 in the first month, get €20. Virtual card plus Apple/Google Pay so the customer can pay at once. Revolut counts a customer as "main bank" when salary is above 60% of the country average.</td><td>75M+ customers. Salary is the definition of primacy <span class="src">(11:FS)</span></td></tr>
+        <tr><td>Nubank (Brazil, Mexico, Colombia)</td><td>Card first, then deepening. Payroll-linked credit (Worker's Credit). A "primary banking playbook" moving to higher-income segments.</td><td>139M customers. Monthly activity rate 83.5% (86%+ in Brazil). ARPAC (revenue per active customer) about $17 a month <span class="src">(Q2 2026)</span></td></tr>
+        <tr><td>UK switching banks via CASS (Nationwide, HSBC, Santander, First Direct)</td><td>Cash for switching the full account in 7 days (£175–£220), paid once salary and direct debits move.</td><td>1.22M switches in the 12 months to June 2026. Q1 2026 was up 43% YoY <span class="src">(CASS Q2 2026)</span></td></tr>
+        <tr><td>Cash App, Varo and US credit unions using Pinwheel / Atomic</td><td>Salary switching in the app, without paper forms or payroll passwords.</td><td>34% average switch conversion, up to 70%. Varo direct deposits +23% in one month. Cash App direct-deposit users bring 6.5x the inflows of P2P users <span class="src">(Pinwheel, Sacra)</span></td></tr>
+        <tr><td>Card issuers using push provisioning (Fiserv, BOK Financial/TransFund, SoFi)</td><td>Card goes into Apple/Google Pay on the day of approval, before the plastic arrives.</td><td>Up to 300% more wallet enrolment. 83% of cardholders transacted within 3 days while waiting for the physical card <span class="src">(TransFund)</span>. Card activation averages only 57% without this</td></tr>
+        <tr><td>Shine (France) and others using StriveCloud</td><td>Gamified onboarding: progress bars, missions, badges.</td><td>Up to 80% completion vs. a 15% baseline for flows without gamification</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Patterns across these banks</h3>
+  <ul class="bullets">
+    <li><strong>Salary first, through an incentive the customer feels every month.</strong> Early pay, tiers and fee waivers are linked to salary, not one-off cash. Accounts with a direct deposit stay open about twice as long.</li>
+    <li><strong>Spending from day 0.</strong> A virtual card plus wallet provisioning removes the 5–10 day wait for the plastic. Welcome rewards ask for a spend, not just an account opening.</li>
+    <li><strong>A reason to open the app every payday.</strong> Pots, salary sorting and bill pots give the customer a job to do in the app when the salary arrives, which ties the salary, bill payments and app use together.</li>
+    <li><strong>Bonuses alone don't create habits.</strong> The Financial Brand notes that sign-up bonuses are a top reason people hold cards that are now inactive (The Financial Brand, Nov 2026). Rewards work best when linked to a recurring behaviour.</li>
+  </ul>
+</section>
+
+<!-- OTHER INDUSTRIES -->
+<section id="industries">
+  <h2>Other industries: what banking can borrow</h2>
+  <p>Outside banking, the strongest programmes all find one early behaviour that predicts retention. They make it happen in the first session or week, then build a habit around it.</p>
+
+  <div class="table-wrap">
+    <table class="tbl-wide" style="min-width:960px">
+      <thead><tr><th>Industry</th><th>Example</th><th>Early-engagement mechanic</th><th>Reported result</th><th>Idea for daily banking</th></tr></thead>
+      <tbody>
+        <tr><td>Consumer tech / SaaS</td><td>Facebook, Slack, Dropbox, Twitter</td><td>A measurable "aha" threshold: 7 friends in 10 days, 2,000 team messages, one saved file, 30 accounts followed. The whole onboarding is built to reach it.</td><td>Average B2B SaaS activation is only 37.5%, so two-thirds never activate (Digital Applied/Userpilot). The thresholds are correlations to test, not proof of cause</td><td>Define the bank's own threshold, e.g. "salary + 5 card payments + 1 bill paid in 30 days". Run the onboarding against it</td></tr>
+        <tr><td>Education apps</td><td>Duolingo</td><td>Daily goal and streak start in the first session, before sign-up. The customer chooses the length of the commitment (7/14/30 days).</td><td>Learners on a 7-day streak are 2.4x more likely to come back the next day. Making streaks easier to keep raised 7+ day streaks by 40%. Retention is most fragile in the first 7 days (Lenny's Newsletter)</td><td>"Spending streaks" or weekly money check-ins. Let customers choose their own savings or budget goal at sign-up</td></tr>
+        <tr><td>Streaming</td><td>Netflix, Spotify</td><td>Taste questions at sign-up, likes and dislikes, a "start here" sequence</td><td>Viewers with 3+ hours in week 1 churn 3x less (DEV/OTT guide). Cold-start personalisation cut 30-day churn by 7% (Xperi/TiVo)</td><td>Ask 2–3 goal questions at onboarding (saving for X, splitting bills, travel) and personalise the first 30 days</td></tr>
+        <tr><td>Subscription apps</td><td>RevenueCat clients</td><td>Onboarding again just after conversion to paid, to reach a "first premium win"</td><td>Early cancellations cluster in the first 24–48 hours after conversion</td><td>Upgrades to a premium card or package need their own first-week journey</td></tr>
+        <tr><td>Telco</td><td>Major US internet provider (CCW 2026)</td><td>Proactive welcome call, even an automated voice agent, in the first 90 days. Explaining the first bill before it arrives.</td><td>Welcomed customers were less than half as likely to cancel in 30 days (CCW 2026 via DEV). Contact volume peaks in the first 3 months, around the first bill (SundaySky)</td><td>Welcome call or chat in week 1. Explain the first statement and first fees before they surprise the customer</td></tr>
+        <tr><td>Retail / QSR</td><td>Starbucks</td><td>App combines ordering, payment and loyalty. A first purchase is needed to unlock status ("automatic Gold" launch offer). Personalised weekly offers.</td><td>Mobile order and pay is 30%+ of US transactions (Consumer Goods)</td><td>Pay, see rewards and redeem in one app flow. Show the reward progress bar after the first purchase</td></tr>
+        <tr><td>E-commerce / DTC</td><td>DTC brands, Amazon</td><td>A second-order plan in days 0–30: replenishment reminders, Subscribe &amp; Save</td><td>A second order within 30–60 days makes long-term buying 3x more likely. More than half of second orders happen within 30 days (WiserReview)</td><td>Treat the second card payment and second bill payment as goals to reach quickly, not just the first</td></tr>
+        <tr><td>Insurance / health</td><td>Vitality (Discovery)</td><td>Apple Watch paid off by staying active. Weekly small rewards plus a long-term loss-framed goal.</td><td>34% more activity days a month (Becker's). Platinum members up to 46% less likely to lapse (Vitality)</td><td>Rewards tied to daily banking: e.g. the account fee drops to zero if salary arrives and 10+ card payments are made each month</td></tr>
+        <tr><td>Fitness</td><td>Peloton, beginner-training apps</td><td>Challenges, community, badges, early consistency</td><td>Training consistency in the first 28 days was the strongest predictor of adherence (Frontiers 2026). Community members work out 15% more often (Nas.com)</td><td>Measure weeks with activity in the first month, not only total transactions</td></tr>
+        <tr><td>Super apps (SE Asia)</td><td>Grab / GrabPay, GCash</td><td>Cashback for the first use of each new service, e.g. first bill payment or first instalment purchase. Coalition coins across services.</td><td>52M monthly transacting users in Q1 2026, up 16% YoY (Loyalty Reward Co.)</td><td>A small reward for each "first": first bill payment, first transfer, first wallet payment</td></tr>
+        <tr><td>Mobile apps (all)</td><td>AppsFlyer, Adjust, UXCam benchmarks</td><td>Day-1 quality, day-7 habit, day-30 utility</td><td>Gaming D1 27%, D30 5%. Marketplace D1 25%, D30 8% (Adjust via Stream). Fintech D30 about 11.6%</td><td>Finance has a natural advantage in daily use. Measure D1/D7/D30 app retention for new customers</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- VENDORS -->
+<section id="vendors">
+  <h2>Vendor landscape for early engagement</h2>
+  <p>The market sells this capability in six layers. Most banks buy two or three of them and build the orchestration logic themselves.</p>
+
+  <div class="layers">
+    <div class="card layer"><h4>1 · Engagement-banking platforms</h4>
+      <div class="what">Digital onboarding plus the journeys that follow (servicing, lending, daily banking), all in one front end.</div>
+      <div class="vendors">Backbase (Forrester DBEP Leader, Q2 2026), Infosys Finacle, Temenos, Q2</div>
+      <div class="ev">One Backbase client grew from 2,000 to 21,000+ new customers a month (Backbase)</div></div>
+    <div class="card layer"><h4>2 · Insight and nudge engines</h4>
+      <div class="what">Personalised insights from transaction data: bills due, salary arrived, savings nudges.</div>
+      <div class="vendors">Personetics (often bundled through FIS), Meniga, Strands, Bud</div>
+      <div class="ev">iBank: 34.6% digital engagement and 31.4% click-through on insights. 74% of customers say they'd be more loyal to a bank that gives such tips (Personetics survey)</div></div>
+    <div class="card layer"><h4>3 · Lifecycle and messaging orchestration</h4>
+      <div class="what">Triggered push, email, in-app and SMS journeys from behaviour events.</div>
+      <div class="vendors">Braze, MoEngage, Airship, Salesforce Marketing Cloud, Adobe Journey Optimizer, Xtremepush, Infobip</div>
+      <div class="ev">Cross-industry tools. Airship's data shows finance apps leading day-30 activation (eMarketer)</div></div>
+    <div class="card layer"><h4>4 · Salary switching</h4>
+      <div class="what">Moving salary and direct debits in the app.</div>
+      <div class="vendors">Pinwheel, Atomic (also sold as Mastercard Deposit Switch), Argyle (US). In Europe: national switching services such as UK CASS and Austria's statutory account-switching process</div>
+      <div class="ev">Pinwheel reports 34% average conversion, up to 70%</div></div>
+    <div class="card layer"><h4>5 · Card activation and wallet provisioning</h4>
+      <div class="what">Instant virtual card, push provisioning to Apple/Google/Samsung Pay.</div>
+      <div class="vendors">Issuer processors (Fiserv, Thales, Idemia, Entrust) and BaaS issuers (Lithic, Stripe, Wise, Increase)</div>
+      <div class="ev">Up to 300% more wallet enrolment (TransFund)</div></div>
+    <div class="card layer"><h4>6 · Gamification and rewards</h4>
+      <div class="what">Missions, progress bars, cashback for each "first" action.</div>
+      <div class="vendors">StriveCloud, Talon.One, Cardlytics or other card-linked offers</div>
+      <div class="ev">Shine: 80% gamified flow completion vs. 15% baseline (Xtremepush/StriveCloud)</div></div>
+  </div>
+  <p class="muted">In-app guidance tools (Appcues, Pendo, Userpilot, WalkMe) and product analytics (Amplitude, Mixpanel) cover onboarding tours and finding activation thresholds. They are more common in SaaS than in banking apps.</p>
+</section>
+
+<!-- PLAYBOOK -->
+<section id="playbook">
+  <h2>A cross-industry playbook for daily banking</h2>
+  <p>Put together, the evidence points to one journey: card in use on day 0, first payment in week 1, salary and bills moved by day 30, and a weekly habit by day 90. It borrows the best mechanic from each industry above.</p>
+
+  <h3>Win the first card payment in week 1 and the salary by day 30</h3>
+  <div class="journey" role="table" aria-label="Daily-banking early-engagement journey, 4 phases by 4 lanes">
+    <div class="jgrid">
+      <div></div>
+      <div class="jhead"><b>Day 0</b><span>Open</span></div>
+      <div class="jhead"><b>Days 1–7</b><span>Activate</span></div>
+      <div class="jhead"><b>Days 8–30</b><span>Make primary</span></div>
+      <div class="jhead"><b>Days 31–90</b><span>Build the habit</span></div>
+
+      <div class="jlane">Card</div>
+      <div class="jcell">Virtual card live. Add to Apple/Google Pay before plastic</div>
+      <div class="jcell hi"><strong>First card payment</strong>Welcome reward paid after 1st spend</div>
+      <div class="jcell">Second-purchase nudge; 5+ payments in month 1</div>
+      <div class="jcell">Top of wallet: used every week, tiered rewards</div>
+
+      <div class="jlane">Salary</div>
+      <div class="jcell">Ask for salary at sign-up (1-tap switch)</div>
+      <div class="jcell">Pre-filled letter for employer, or switch service</div>
+      <div class="jcell hi"><strong>First salary lands</strong>Salary sorter and paid-early perk</div>
+      <div class="jcell">Recurring salary unlocks fee waiver and benefit tier</div>
+
+      <div class="jlane">Bill payments</div>
+      <div class="jcell">Show which bills to move from the old account</div>
+      <div class="jcell">Move direct debits via the switch service</div>
+      <div class="jcell">First bill paid from a bills pot; small reward</div>
+      <div class="jcell">All recurring bills on autopay; due-date reminders</div>
+
+      <div class="jlane">App habit</div>
+      <div class="jcell">Push and biometric login on; pick one money goal</div>
+      <div class="jcell">Welcome call or chat; spending alerts</div>
+      <div class="jcell">Explain the first statement and fees; payday check-in</div>
+      <div class="jcell">Weekly insights and streaks; track day-30 app retention</div>
+    </div>
+  </div>
+  <p class="muted" style="font-size:13.5px">Highlighted: the two milestones that most predict primacy. Read each lane from left to right. The four lanes run at the same time, and each phase passes on a single behaviour to the next.</p>
+
+  <h3>Six principles that transfer across industries</h3>
+  <ol class="principles">
+    <li><b>Find your own aha threshold</b><em>Social media, SaaS</em><br>Use cohort data to find which early combination predicts 12-month primacy. A likely candidate is salary + 5 card payments + 1 bill in 30 days. Then make the onboarding aim for that.</li>
+    <li><b>Deliver value in the first session</b><em>Duolingo, push provisioning</em><br>Before the customer leaves the app on day 0 they should have a card in their phone wallet and one goal set.</li>
+    <li><b>Reward behaviour that repeats, not sign-up</b><em>Chime tiers, Vitality</em><br>Link benefits to monthly salary and card use. One-off cash brings in bonus hunters.</li>
+    <li><b>Aim for the second action, not just the first</b><em>E-commerce</em><br>The second card payment and the second bill payment show that a habit is forming.</li>
+    <li><b>Get ahead of the first moment of friction</b><em>Telco</em><br>Call or message in week 1. Explain the first statement and fees before they arrive.</li>
+    <li><b>Personalise from a few questions</b><em>Streaming</em><br>Two or three goal questions at sign-up decide which journey the customer gets.</li>
+  </ol>
+</section>
+
+<!-- GAP -->
+<section id="gap">
+  <h2>Current offering vs. market</h2>
+  <p>Our three pillars cover communication, incentives and app features, and match or beat the market on volume. The biggest gaps are salary and bill payments (no pillar targets them) and measurement (only at 30 days on book).</p>
+
+  <div class="table-wrap">
+    <table class="tbl-wide">
+      <thead><tr><th>Pillar</th><th>Today</th><th>What leaders do</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td>Communications</td><td>8–10 messages in month 1</td><td>Above the 7-touch benchmark. Leaders send each message because of what the customer has or hasn't done, add a human contact, and keep going until day 90</td><td>Send messages based on behaviour (wallet not added, salary arrived, first bill due). Add a welcome call or chat in week 1. Explain the first statement and fees in advance. Continue at a lower frequency until day 90</td></tr>
+        <tr><td>Rewards</td><td>Do x transactions a month, get y EUR, for the first 6 months</td><td>Revolut rewards a first spend. Chime and Vitality link tiered, permanent benefits to repeated behaviour, especially salary</td><td>Add a salary tier. Count bill payments toward the target. Show progress in the app. Plan the month-6 hand-over to a permanent fee waiver. Set a minimum amount per transaction so bonus hunters can't game the count</td></tr>
+        <tr><td>Mobile features</td><td>Virtual card</td><td>Virtual card plus push to Apple/Google Pay on day 0. Payday features (salary sorter, bill pots)</td><td>Make sure the card can be added to the wallet from the app on day 0. Add a payday moment that gives salaried customers a reason to open the app</td></tr>
+        <tr class="missing"><td>Missing: Salary</td><td>No pillar</td><td>Chime, Monzo and Revolut define primacy by salary. Accounts with direct deposit last about 2x longer</td><td>Ask for salary at sign-up. Provide a pre-filled employer letter. Use the statutory account-switching service. Reward salary separately</td></tr>
+        <tr class="missing"><td>Missing: Bill payments</td><td>No pillar</td><td>Grab rewards the first bill payment. Monzo pays bills from pots</td><td>Show which bills to move. One-tap direct-debit setup. Small reward for the first bill paid</td></tr>
+        <tr class="missing"><td>Missing: Personalisation</td><td>One journey for all</td><td>Streaming apps ask taste questions at sign-up. Cold-start personalisation cut 30-day churn by 7%</td><td>Ask 2–3 goal questions at sign-up and use them to choose which messages and features each customer sees</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Measurement beyond 30 days on book</h3>
+  <ul class="bullets">
+    <li>Add day 7 (first card payment, wallet added) and day 90 (primacy: salary + bills + card habit). At day 30, many salaries haven't arrived yet and you can't see whether the habit lasts.</li>
+    <li>Track the share still active after the 6-month reward ends, to tell a real habit from activity the reward bought.</li>
+    <li>Use cohort analysis to test our aha threshold (e.g. salary + 5 card payments + 1 bill in 30 days) against 12-month primacy.</li>
+    <li>Keep a control group with no communications or rewards, so each pillar's real effect can be measured.</li>
+  </ul>
+</section>
+
+<!-- KPIs -->
+<section id="kpis">
+  <h2>KPIs and next steps</h2>
+  <p>Measure early engagement per weekly cohort of new customers, against fixed day marks, rather than as monthly averages.</p>
+
+  <div class="table-wrap">
+    <table class="tbl-mid">
+      <thead><tr><th>KPI</th><th>Definition</th><th>Measured at</th><th>External reference point</th></tr></thead>
+      <tbody>
+        <tr><td>Time to first card payment</td><td>Days from account opening to first genuine purchase</td><td><span class="tag">D1</span> <span class="tag">D7</span></td><td>83% transact within 3 days when the card is push-provisioned</td></tr>
+        <tr><td>Wallet provisioning rate</td><td>Share of new cards added to Apple/Google Pay</td><td><span class="tag">D7</span></td><td>Push provisioning lifts enrolment up to 300%</td></tr>
+        <tr><td>Salary capture rate</td><td>Share of new customers with a recurring salary credit (e.g. 60%+ of the national average, Revolut's definition)</td><td><span class="tag">D30</span> <span class="tag">D90</span></td><td>Switch API conversion averages 34% (US)</td></tr>
+        <tr><td>Bill payment activation</td><td>Share with 1+ direct debit or bill payment, and with 2+</td><td><span class="tag">D30</span> <span class="tag">D90</span></td><td class="muted">No public benchmark found</td></tr>
+        <tr><td>Card habit</td><td>Share with 5+ purchases in month 1, and active in 3 of the first 4 weeks</td><td><span class="tag">D30</span></td><td>Second order in 30–60 days = 3x long-term buyers (e-commerce)</td></tr>
+        <tr><td>App retention</td><td>Share of new customers who open the app on day 1 / 7 / 30</td><td><span class="tag">D1</span> <span class="tag">D7</span> <span class="tag">D30</span></td><td>Fintech D30 about 11.6%. Nubank monthly activity 83.5%</td></tr>
+        <tr><td>Primacy rate</td><td>Salary + bills + card habit all achieved</td><td><span class="tag">D90</span></td><td>Primacy is unlikely after 90 days (Curinos)</td></tr>
+        <tr><td>Touch cadence</td><td>Personal contacts in the first 60 days</td><td><span class="tag">D60</span></td><td>Results improve up to 7 touches</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Next steps</h3>
+  <ol class="steps">
+    <li>Find our own aha threshold: run a cohort analysis of 2024–2025 openings against 12-month primacy</li>
+    <li>Baseline the KPIs above for the last 6 monthly cohorts</li>
+    <li>Review the gaps on day 0: virtual card, push provisioning, salary question at sign-up</li>
+    <li>Design a test that links the welcome reward to first spend plus salary, instead of to account opening</li>
+    <li>Prototype a payday moment (salary sorter / bills pot) and a week-1 welcome contact</li>
+    <li>Evaluate vendors for the gaps: insight engine, lifecycle orchestration, salary switching support</li>
+  </ol>
+</section>
+
+<!-- SOURCES -->
+<section id="sources">
+  <h2>Sources</h2>
+  <div class="callout warn">Vendor-published figures (Pinwheel, Personetics, Backbase, StriveCloud, TransFund) are the vendors' own claims and have not been independently checked.</div>
+  <ul class="sources">
+    <li>Curinos – Target regularity to boost CLV</li>
+    <li>Gallup – The importance of that first embrace (BAI study)</li>
+    <li>Q2 – Mastering consumer onboarding (2025)</li>
+    <li>The Financial Brand – Turning new accounts into primary relationships</li>
+    <li>The Financial Brand – First 90 days decide top-of-wallet (Nov 2026)</li>
+    <li>The Financial Brand – Business case for onboarding</li>
+    <li>CSI – Why early engagement is critical</li>
+    <li>Chime – Chime Prime launch · PYMNTS – Chime Q3 2026</li>
+    <li>Monzo – Payday features · 11:FS – The fight to win the salary battle</li>
+    <li>Revolut – Welcome bonus terms</li>
+    <li>Nu Holdings – Q2 2026 results</li>
+    <li>Current Account Switch Service – Q2 2026 dashboard</li>
+    <li>Pinwheel – Deposit switching UX · Sacra – Direct deposit switching APIs</li>
+    <li>TransFund – Push provisioning infographic</li>
+    <li>UXCam – App retention benchmarks 2026 · eMarketer/Airship – Day-30 activation</li>
+    <li>Digital Applied – SaaS time-to-value framework</li>
+    <li>Duolingo – Improving the streak · Lenny's Newsletter – Duolingo streaks</li>
+    <li>Xperi – Streaming personalisation · RevenueCat – Premium win messaging</li>
+    <li>CCW 2026 welcome-call results (via DEV)</li>
+    <li>Starbucks Rewards · WiserReview – E-commerce retention</li>
+    <li>Vitality – Behaviour change study · Frontiers – Exercise adherence 2026</li>
+    <li>Personetics – iBank case · Backbase – Forrester DBEP Wave Q2 2026</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Early Engagement: Global Market Scan Across Industries · Nov 22, 2026 · Edi Mala</div>
+</footer>
+</body>
+</html>
