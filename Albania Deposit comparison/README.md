@@ -26,11 +26,11 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 2. Run `python3 tools/sheet_to_js.py Rates.csv` — this rewrites `data/rates.js`.
 3. Edit `data/notes.js` if the "Notes & gaps" tab changed.
 
-## Bank icons
+## Bank logos
 
-Each bank gets a coloured badge defined in `data/banks.js` (short name, initials, colours).
-To show a real logo, save it in `assets/logos/` (square, 64×64 px or larger) and set `logo: "assets/logos/<file>"` for that bank.
+Logos are 128×128 PNGs in `assets/logos/`, downloaded from each bank's website (Nov 2026); Tirana Bank uses its site icon.
+`data/banks.js` maps each bank to its logo, short name and fallback badge colours. Set `logo: null` to show the coloured initials badge instead.
 
-Columns used: `bank_id, bank_name, currency, term_months, rate_pct, amount_min, amount_max, amount_tier,
-product, category, interest_payment, valid_until, notes, source_type, source_date, source_url`.
-Rows without a term are listed in the Data notes tab instead of the tables.
+## Single-file version
+
+`python3 tools/build_single_file.py out.html` bundles everything (CSS, data, logos) into one HTML file for publishing.
