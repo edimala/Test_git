@@ -5,12 +5,12 @@
   --text: #14181f;
   --muted: #5d6675;
   --border: #e2e5ec;
-  --accent: #1f5eff;
-  --accent-soft: #e6edff;
+  --accent: #c8102e;
+  --accent-soft: #fde8eb;
   --best: #0f7b46;
   --best-soft: #e3f6ec;
   --warn: #9a5b00;
-  --heat: 31, 94, 255;
+  --heat: 200, 16, 46;
   --radius: 12px;
   --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 4px 16px rgba(16, 24, 40, .04);
 }
@@ -22,12 +22,12 @@
     --text: #e8ebf0;
     --muted: #9aa3b2;
     --border: #2a303b;
-    --accent: #6b93ff;
-    --accent-soft: #1f2a47;
+    --accent: #ff6b7f;
+    --accent-soft: #3a1c22;
     --best: #4ccf8c;
     --best-soft: #143326;
     --warn: #e0a84a;
-    --heat: 107, 147, 255;
+    --heat: 255, 107, 127;
     --shadow: none;
   }
 }
@@ -149,3 +149,30 @@ table.rates { width: 100%; border-collapse: collapse; font-variant-numeric: tabu
   .input-prefix input { width: 100%; }
   .rates th, .rates td { padding: 10px; }
 }
+
+/* ---- Albanian deposits additions ---- */
+button.card { font: inherit; color: inherit; text-align: left; cursor: pointer; }
+button.card:hover { border-color: var(--accent); }
+.card.info { background: var(--surface-2); box-shadow: none; }
+.controls .insure { flex-basis: 100%; margin: 0; font-size: 13px; color: var(--warn); font-weight: 600; }
+.term-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+.term-label { font-size: 13px; font-weight: 600; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.badges .badge { margin-left: 0; }
+.badge.offer { background: var(--accent); }
+.rates .sub { font-size: 12px; font-weight: 500; color: var(--muted); }
+.rates .muted { color: var(--muted); font-weight: 500; font-size: 13px; }
+.rates td.src a { color: var(--accent); text-decoration: none; }
+.rates td.src a:hover { text-decoration: underline; }
+.rates td.prod { min-width: 170px; }
+.matrix sup { color: var(--muted); font-weight: 700; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.note { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.note-k { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 4px; }
+.note.gap .note-k { color: var(--warn); }
+.note.exp .note-k { color: var(--accent); }
+.note-v { font-size: 14px; }
+.rates td.prod { white-space: normal; max-width: 280px; }
+.note-line { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.matrix th, .matrix td { padding: 10px 8px; }
+.matrix td:first-child, .matrix th:first-child { padding-left: 12px; }
