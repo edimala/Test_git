@@ -12,6 +12,7 @@
   --warn: #9a5b00;
   --heat: 200, 16, 46;
   --radius: 12px;
+  --flag: #e41e20;
   --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 4px 16px rgba(16, 24, 40, .04);
 }
 @media (prefers-color-scheme: dark) {
@@ -42,14 +43,16 @@ body {
 }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
 
-.site-header { background: var(--surface); border-bottom: 1px solid var(--border); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
-.brand-mark {
-  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px;
-  background: var(--accent); color: #fff; font-weight: 800;
-}
-.updated { color: var(--muted); font-size: 13px; }
+.site-header { background: var(--flag); color: #fff; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 12px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; min-width: 0; }
+.squirrel { width: 46px; height: 46px; flex: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,.25)); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-weight: 800; font-size: 20px; letter-spacing: -.01em; }
+.brand-tag { font-size: 13px; opacity: .9; font-weight: 500; }
+.kilim { height: 14px; background: #141414 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236%22%20height%3D%2214%22%20viewBox%3D%220%200%2036%2014%22%3E%3Crect%20width%3D%2236%22%20height%3D%2214%22%20fill%3D%22%23141414%22/%3E%3Cpath%20d%3D%22M18%201%20L25%207%20L18%2013%20L11%207%20Z%22%20fill%3D%22%23e41e20%22/%3E%3Cpath%20d%3D%22M18%204.5%20L21%207%20L18%209.5%20L15%207%20Z%22%20fill%3D%22%23141414%22/%3E%3Cpath%20d%3D%22M0%200%20L4%200%20L0%204%20Z%20M36%200%20L32%200%20L36%204%20Z%20M0%2014%20L4%2014%20L0%2010%20Z%20M36%2014%20L32%2014%20L36%2010%20Z%22%20fill%3D%22%23e41e20%22/%3E%3Ccircle%20cx%3D%224.5%22%20cy%3D%227%22%20r%3D%221.3%22%20fill%3D%22%23f4efe6%22/%3E%3Ccircle%20cx%3D%2231.5%22%20cy%3D%227%22%20r%3D%221.3%22%20fill%3D%22%23f4efe6%22/%3E%3C/svg%3E") repeat-x left center; }
+.updated { color: rgba(255,255,255,.88); font-size: 13px; text-align: right; }
+@media (max-width: 520px) { .updated { display: none; } }
 
 .hero { padding: 32px 0 20px; }
 .hero h1 { margin: 0 0 6px; font-size: clamp(24px, 4vw, 34px); letter-spacing: -.02em; }
@@ -121,10 +124,17 @@ table.rates { width: 100%; border-collapse: collapse; font-variant-numeric: tabu
 
 .bank { display: flex; align-items: center; gap: 10px; font-weight: 600; white-space: normal; min-width: 150px; }
 .rates td.prod { white-space: normal; min-width: 130px; }
-.bank-dot {
-  width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center;
-  color: #fff; font-size: 11px; font-weight: 800; flex: none;
+.bank-icon {
+  width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; flex: none;
+  background: var(--bc); color: var(--bt); font-size: 12px; font-weight: 800; letter-spacing: .02em;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.12);
+  position: relative; overflow: hidden;
 }
+.bank-icon::after { content: ""; position: absolute; inset: 0 0 50% 0; background: rgba(255,255,255,.14); }
+.bank-icon[data-len="3"] { font-size: 10.5px; }
+.bank-icon.logo { background: #fff; border: 1px solid var(--border); box-shadow: none; }
+.bank-icon.logo::after { display: none; }
+.bank-icon img { width: 100%; height: 100%; object-fit: contain; }
 .rate { font-weight: 700; font-size: 16px; }
 .best-row td { background: var(--best-soft); }
 .badge {

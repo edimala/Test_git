@@ -8,10 +8,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   /* ---------- reference data ---------- */
-  const SHORT = { ABI: "ABI", BKT: "BKT", CREDINS: "Credins Bank", INTESA: "Intesa Sanpaolo", PROCREDIT: "ProCredit Bank",
-    UBA: "United Bank of Albania", OTP: "OTP Bank", TIRANA: "Tirana Bank", JET: "Jet Bank", UNION: "Union Bank",
-    FIB: "Fibank", RAIFFEISEN: "Raiffeisen Bank", ZIRAAT: "Ziraat Bank" };
-  const INITIALS = { ABI: "ABI", BKT: "BKT", CREDINS: "CR", INTESA: "ISP", PROCREDIT: "PC", UBA: "UBA", OTP: "OTP", TIRANA: "TB", JET: "JB", UNION: "UB", FIB: "FIB", RAIFFEISEN: "RB", ZIRAAT: "ZB" };
+  const META = window.BANK_META || {};
   const PALETTE = ["#c8102e", "#1d4ed8", "#0f766e", "#7c3aed", "#b45309", "#be185d", "#15803d", "#0369a1", "#9f1239", "#4d7c0f", "#6d28d9", "#a16207", "#334155"];
   const DEFAULT_AMOUNT = { ALL: 1000000, EUR: 10000, USD: 10000, GBP: 10000 };
   const CCY_ORDER = ["ALL", "EUR", "USD", "GBP"];
@@ -21,7 +18,9 @@
   const banks = {};
   bankIds.forEach((id, i) => {
     const full = D.rows.find((r) => r.bank_id === id).bank_name;
-    banks[id] = { id, full, name: SHORT[id] || full, color: PALETTE[i % PALETTE.length] };
+    const m = META[id] || {};
+    banks[id] = { id, full, name: m.short || full, color: m.color || PALETTE[i % PALETTE.length], text: m.text || "#fff",
+      initials: m.initials || full.split(/\s+/).map((w) => w[0]).join("").slice(0, 3).toUpperCase(), logo: m.logo || null };
   });
   const currencies = CCY_ORDER.filter((c) => rows.some((r) => r.currency === c))
     .concat([...new Set(rows.map((r) => r.currency))].filter((c) => !CCY_ORDER.includes(c)));
@@ -43,8 +42,10 @@
 
   function bankCell(id) {
     const b = banks[id];
-    const initials = INITIALS[id] || b.name.split(/\s+/).map((w) => w[0]).join("").slice(0, 3).toUpperCase();
-    return `<div class="bank" title="${esc(b.full)}"><span class="bank-dot" style="background:${esc(b.color)}">${esc(initials)}</span>${esc(b.name)}</div>`;
+    const icon = b.logo
+      ? `<span class="bank-icon logo"><img src="${esc(b.logo)}" alt=""></span>`
+      : `<span class="bank-icon" style="--bc:${esc(b.color)};--bt:${esc(b.text)}" data-len="${b.initials.length}">${esc(b.initials)}</span>`;
+    return `<div class="bank" title="${esc(b.full)}">${icon}<span>${esc(b.name)}</span></div>`;
   }
 
   /* ---------- state ---------- */
