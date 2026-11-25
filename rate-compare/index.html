@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RateCompare</title>
+  <meta name="description" content="Compare savings account and term deposit rates across banks.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">%</span> RateCompare
+      </a>
+      <span class="updated" id="updated"></span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Find the best rate for your savings</h1>
+      <p>Compare savings accounts and term deposits from <span id="bankCount"></span> banks side by side.</p>
+    </section>
+
+    <section class="highlights" id="highlights" aria-label="Top rates"></section>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="savings">Savings accounts</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="td">Term deposits</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="matrix">Rate table by term</button>
+    </nav>
+
+    <!-- SAVINGS -->
+    <section class="panel" id="panel-savings">
+      <div class="controls">
+        <label class="field">
+          <span>Balance</span>
+          <div class="input-prefix"><span class="cur"></span><input type="number" id="svAmount" min="0" step="1000" value="20000"></div>
+        </label>
+        <label class="field">
+          <span>Search</span>
+          <input type="search" id="svSearch" placeholder="Bank or product">
+        </label>
+        <label class="field check">
+          <input type="checkbox" id="svBonus" checked>
+          <span>I'll meet bonus conditions</span>
+        </label>
+        <label class="field check">
+          <input type="checkbox" id="svEligible">
+          <span>Hide accounts I'm not eligible for</span>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table class="rates" id="svTable">
+          <thead>
+            <tr>
+              <th data-sort="bank">Bank</th>
+              <th data-sort="product">Account</th>
+              <th data-sort="effective" class="num sorted desc">Rate p.a.</th>
+              <th data-sort="baseRate" class="num">Base</th>
+              <th data-sort="bonusRate" class="num">Bonus</th>
+              <th>Conditions</th>
+              <th data-sort="minBalance" class="num">Min balance</th>
+              <th data-sort="earn" class="num">Est. interest / yr</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TERM DEPOSITS -->
+    <section class="panel" id="panel-td" hidden>
+      <div class="controls">
+        <label class="field">
+          <span>Deposit amount</span>
+          <div class="input-prefix"><span class="cur"></span><input type="number" id="tdAmount" min="0" step="1000" value="50000"></div>
+        </label>
+        <div class="field">
+          <span>Term</span>
+          <div class="chips" id="tdTerms" role="radiogroup"></div>
+        </div>
+        <label class="field">
+          <span>Interest paid</span>
+          <select id="tdPaid">
+            <option value="">Any</option>
+            <option value="maturity">At maturity</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table class="rates" id="tdTable">
+          <thead>
+            <tr>
+              <th data-sort="bank">Bank</th>
+              <th data-sort="product">Product</th>
+              <th data-sort="rate" class="num sorted desc">Rate p.a.</th>
+              <th data-sort="interestPaid">Interest paid</th>
+              <th data-sort="minDeposit" class="num">Min deposit</th>
+              <th data-sort="earn" class="num">Interest earned</th>
+              <th data-sort="total" class="num">Total at maturity</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MATRIX -->
+    <section class="panel" id="panel-matrix" hidden>
+      <p class="hint">Term deposit rates for every bank and term. The best rate in each column is highlighted; darker cells pay more.</p>
+      <div class="table-wrap">
+        <table class="rates matrix" id="mxTable"><thead></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <p class="disclaimer">
+      Sample data for demonstration only. Bank names and rates are fictional. Interest estimates are
+      indicative: savings assume monthly compounding at a constant rate; term deposits use simple interest
+      over the term. Always check the bank's current terms before you decide.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">RateCompare · Not financial advice</div>
+  </footer>
+
+  <script src="data/rates.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
